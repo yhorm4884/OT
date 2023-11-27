@@ -1,0 +1,27 @@
+/* Añadir un poco de espacio en la parte superior */
+body {
+    margin-top: 20px;
+    
+}
+/* Centrar el contenido en la página */
+.container {
+    text-align: center;
+}
+/* Estilo mejorado para las tarjetas */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+/* Centrar la imagen dentro de la tarjeta */
+.card img {
+    display: block;
+    margin: auto;
+    width: 80%;
+    margin-top: 5%;
+}
+/* Centrar el texto en el cuerpo de la tarjeta */
+.card-body {
+    text-align: center;
+}

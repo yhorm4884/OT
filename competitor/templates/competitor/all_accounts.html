@@ -4,12 +4,26 @@
 {% endblock %}
 {% block content %}
     <h1>List of Competitors</h1>
-    <ul>
+    <div class="competitor-list">
         {% for competitor in all_competitors %}
-            <li>
-                <img src="{{ competitor.avatar.url }}" alt="{{ competitor.first_name }}'s Avatar">
-                {{ competitor.first_name }}
-            </li>
+            <div class="competitor-card">
+                {% if competitor.avatar %}
+                    <div class="competitor-card__image" style="background-image: url('{{ competitor.avatar.url }}');"></div>
+                {% else %}
+                    <div class="competitor-card__image placeholder-image"></div>
+                {% endif %}
+                <div class="competitor-card__details">
+                    <div class="competitor-card__unit-name">
+                        {{ competitor.first_name }}
+                    </div>
+                    <div class="competitor-card__unit-description">
+                        City: {{ competitor.city }}
+                    </div>
+                    <div class="competitor-card__unit-description">
+                        Music Styles: {% for style in competitor.music_styles.all %}{{ style.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}

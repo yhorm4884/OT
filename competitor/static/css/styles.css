@@ -12,3 +12,49 @@ img:hover {
   clip-path: circle(50% at 50% 50%); 
   max-width: 50px;
 }
+.competitor{
+  clip-path: circle(100%); 
+  max-width: 200px;
+}
+.competitor-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.competitor-card {
+  margin: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.competitor-card__image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.competitor-card__details {
+  padding: 20px;
+}
+
+.competitor-card__unit-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.competitor-card__unit-description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+.placeholder-image {
+  height: 200px;
+  background-color: #ccc;
+  background-size: cover;
+  background-position: center;
+}

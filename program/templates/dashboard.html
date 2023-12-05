@@ -10,18 +10,19 @@
       <div class="d-flex justify-content-center">
         <div class="row">
           <h1 class="mb-4">Operación triunfo 2023</h1>
-          <a href="{% url 'competitor:all_competitors'%}"></a>
+          <a href="{% url 'competitor:competitor'%}">
           <div class="col-sm" style="padding-top: 5%;">
           <div class="card" style="max-width: 18rem;">
-            <img src="{{ competitor_image }}" class="card-img-top img-fluid" alt="Competitor" />
+            <img src="{% static "/img/concursantes.jpg"%}" class="card-img-top img-fluid" alt="Competitor" />
             <div class="card-body">
               <h5 class="card-title">Competidores</h5>
             </div>
           </div>
+        </a>
           </div>
           <div class="col-sm" style="padding-top: 5%;">
             <div class="card" style="max-width: 18rem;">
-              <img src="{{ judges_image }}" class="card-img-top img-fluid" alt="Judge" />
+              <img src="{% static "/img/jurado.jpg" %}" class="card-img-top img-fluid" alt="Judge" />
               <div class="card-body">
                 <h5 class="card-title">Jueces</h5>
               </div>
@@ -29,7 +30,7 @@
           </div>
           <div class="col-sm" style="padding-top: 5%;">
           <div class="card" style="max-width: 18rem;">
-            <img src="{{ teachers_image }}" class="card-img-top img-fluid" alt="Teacher" />
+            <img src="{% static "/img/profesores.jpg" %}" class="card-img-top img-fluid" alt="Teacher" />
             <div class="card-body">
               <h5 class="card-title">Profesores</h5>
             </div>

@@ -9,7 +9,7 @@ from . import views
 app_name= 'program'
 urlpatterns = [
     path(_(''), views.dashboard, name='home'),
-    path(_(''), include('competitor.urls', namespace='competitor'))
+    path(_(''), include('competitor.urls', namespace='all_competitors'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

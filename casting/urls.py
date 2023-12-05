@@ -21,5 +21,8 @@ from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(_(''), include('program.urls', namespace='homepage'))
+    path(_(''), include('program.urls', namespace='homepage')),
+    path(_(''), include('competitor.urls', namespace='competitor'))
+
+
     ]

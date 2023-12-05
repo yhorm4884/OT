@@ -1,0 +1,11 @@
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+      <h4>
+        》{{ section|upper }}
+        {% if filter %}
+          ({{ filter|title }})
+        {% endif %}
+      </h4>
+    </li>
+  </ul>
+  

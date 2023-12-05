@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+{% endblock %}
+{% block content %}
+    <h1>List of Competitors</h1>
+    <ul>
+        {% for competitor in all_competitors %}
+            <li>
+                <img src="{{ competitor.avatar.url }}" alt="{{ competitor.first_name }}'s Avatar">
+                {{ competitor.first_name }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

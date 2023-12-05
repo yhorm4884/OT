@@ -1,0 +1,14 @@
+img {
+    border-radius: 10px; /* Agrega esquinas redondeadas a las imágenes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave a las imágenes */
+    transition: transform 0.3s ease; /* Agrega una transición suave al hacer hover sobre las imágenes */
+
+  }
+  
+img:hover {
+  transform: scale(1.05); /* Escala ligeramente la imagen al hacer hover para dar un efecto de zoom */
+}
+.logo{
+  clip-path: circle(50% at 50% 50%); 
+  max-width: 50px;
+}

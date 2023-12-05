@@ -8,7 +8,8 @@ class MusicStyle(models.Model):
     
     def __str__(self) -> str:
         return self.name
-    
+def upload_avatar_path(instance, filename):
+            return f'competitor/{instance.slug}/{filename}'    
 class Competitor(models.Model):
     first_name = models.CharField(max_length=50, blank=False)
     last_name = models.CharField(max_length=50, blank=False)
@@ -17,10 +18,10 @@ class Competitor(models.Model):
     city = models.CharField(max_length=255)
     job = models.CharField(max_length=255)
     hobbies = models.CharField(max_length=255, blank=True)
-    avatar = models.ImageField(upload_to='competitor/%s' % (slug), blank=True, null=False)
+    avatar = models.ImageField(upload_to=upload_avatar_path, blank=True, null=False)
     music_styles = models.ManyToManyField(MusicStyle, related_name='competitors', blank=True)
     objects = models.Manager()
-
+    
     def __str__(self) -> str:
         return self.first_name
 

@@ -1,0 +1,16 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top mb-4" style="background-image: linear-gradient(to right, #0080C9,#FF0000, #FFCD00 );">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="{% static '/img/logo.jpg' %}" class="logo" alt="Operación Triunfo">
+    </a>   
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      {% include "breadcrumbs.html" %}
+      {% include "search.html" %}
+    </div>
+  </div>
+</nav>

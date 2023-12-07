@@ -1,7 +1,10 @@
 import csv
+import os
 from datetime import datetime
 from django.core.management.base import BaseCommand
 from competitor.models import Competitor, MusicStyle
+from django.core.files import File
+from django.conf import settings
 
 class Command(BaseCommand):
     help = 'Importa datos desde un archivo CSV a la base de datos de Django'
@@ -46,6 +49,17 @@ class Command(BaseCommand):
                 for style_name in music_styles_list:
                     style, created = MusicStyle.objects.get_or_create(name=style_name.strip())
                     competitor.music_styles.add(style)
+
+                # Verificar si hay apellidos antes de construir el nombre del archivo de la imagen
+                if last_name:
+                    avatar_filename = f"{first_name.lower()}_{last_name.lower()}.jpg"
+                else:
+                    avatar_filename = f"{first_name.lower()}.jpg"
+
+
+                # Asignar la imagen al competidor
+                competitor.avatar.name = f'competitor_avatars/{avatar_filename}'
+                competitor.save()
 
         self.stdout.write(self.style.SUCCESS('Importación desde CSV completada.'))
 

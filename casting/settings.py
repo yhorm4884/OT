@@ -16,6 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = 'media/'
+GLOBAL_PAGINATION_SIZE = 8  # Puedes ajustar este número según tus necesidades
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -39,10 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'competitor.apps.CompetitorConfig',
-    'teacher.apps.TeacherConfig',
     'judge.apps.JudgeConfig',
+    'teacher.apps.TeacherConfig',
     'program.apps.ProgramConfig',
     'easy_thumbnails',
+    'fontawesomefree'
 
 
 ]

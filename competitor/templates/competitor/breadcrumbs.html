@@ -1,0 +1,42 @@
+<style>
+    .breadcrumb {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      align-items: center; /* Alinea verticalmente los elementos en el contenedor flex */
+    }
+  
+    .breadcrumb-link {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      margin-right: 8px;
+      background-color: rgb(114, 0, 237);
+      border-radius: 5px;
+      padding: 10px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .breadcrumb-link:hover {
+      background-color: #e100ff;
+    }
+  
+    .breadcrumb-separator {
+      color: #FFCD00;
+      margin-right: 8px;
+    }
+  </style>
+  <ul class="breadcrumb">
+    {% for crumb in breadcrumbs %}
+      <li class="nav-item">
+        <a class="breadcrumb-link" href="{{ crumb.url }}">
+          {{ crumb.label }}
+        </a>
+        {% if not forloop.last %}
+          <span class="breadcrumb-separator">&raquo;</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  

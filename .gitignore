@@ -2,3 +2,5 @@ migrations
 __pycache__
 .venv
 db.sqlite3
+media/competitor/*
+media/teacher/*

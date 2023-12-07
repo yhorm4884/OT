@@ -1,4 +1,5 @@
-<form class="d-flex" role="search">
-  <input class="form-control me-2" type="search" placeholder="Concursante" aria-label="Search" id="arrival-to-city">
-  <button id="arrival-search-btn" class="btn btn-outline-primary" type="submit">Search</button>
+<!-- program/templates/search.html -->
+<form class="d-flex" method="get" action="{% url 'program:global_search' %}">
+    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" name="query">
+    <button class="btn btn-outline-primary" type="submit">Buscar</button>
 </form>

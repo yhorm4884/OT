@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <h1>Global Search Results</h1>
+
+  <div class="d-flex justify-content-center">
+    {% if competitors %}
+      <div class="person-list">
+        {% for competitor in competitors %}
+          <a href="{% url 'competitor:competitor_detail' competitor_slug=competitor.slug %}" style="text-decoration: none; color: inherit;">
+            <div class="person-card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; width: 300px; margin: 15px; background-color: #fff;">
+              <img class="user-image" src="{{ competitor.avatar.url }}" alt="{{ competitor.first_name }}" style="width: 100%; object-fit: cover; border-radius: 10px 10px 0 0;">
+              <div class="user-details" style="text-align: left; padding: 15px;">
+                <h3>{{ competitor.first_name }} {{ competitor.last_name }}</h3>
+                <a><i class="fas fa-building-columns icon" style="font-size: 24px; color: #333;"></i>Competidor@</a>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if judges %}
+      <div class="person-list">
+        {% for judge in judges %}
+          <a href="{% url 'judge:judge_detail' judge_slug=judge.slug %}" style="text-decoration: none; color: inherit;">
+            <div class="person-card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; width: 300px; margin: 15px; background-color: #fff;">
+              <img class="user-image" src="{{ judge.avatar.url }}" alt="{{ judge.first_name }}" style="width: 100%; object-fit: cover; border-radius: 10px 10px 0 0;">
+              <div class="user-details" style="text-align: left; padding: 15px;">
+                <h3>{{ judge.first_name }} {{ judge.last_name }}</h3>
+                <a><i class="fas fa-microphone-alt icon" style="font-size: 24px; color: #333;"></i>Jurado</a>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if teachers %}
+      <div class="person-list">
+        {% for teacher in teachers %}
+          <a href="{% url 'teacher:teacher_detail' teacher_slug=teacher.slug %}" style="text-decoration: none; color: inherit;">
+            <div class="person-card" style="display: flex; flex-direction: column; align-items: center; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; width: 250px; margin: 15px; background-color: #fff;">
+              <img class="user-image" src="{{ teacher.avatar.url }}" alt="{{ teacher.first_name }}" style="width: 100%; object-fit: cover; border-radius: 10px 10px 0 0;">
+              <div class="user-details" style="text-align: left; padding: 15px;">
+                <h3>{{ teacher.first_name }} {{ teacher.last_name }}</h3>
+                <a><i class="fas fa-chalkboard-teacher icon" style="font-size: 24px; color: #333;"></i>Profesor</a>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,11 +1,13 @@
+<!-- competitor/templates/competitor/all_accounts.html -->
 {% extends "base.html" %}
 {% load static %}
-{% block head %}
-{% endblock %}
+
 {% block content %}
-    <h1>List of Competitors</h1>
+    {% include "competitor/breadcrumbs.html" %}
+    {% include "competitor/search.html" %}
+
     <div class="competitor-list">
-        {% for competitor in all_competitors %}
+        {% for competitor in competitors %}
             <div class="competitor-card">
                 {% if competitor.avatar %}
                     <div class="competitor-card__image" style="background-image: url('{{ competitor.avatar.url }}');"></div>
@@ -13,9 +15,11 @@
                     <div class="competitor-card__image placeholder-image"></div>
                 {% endif %}
                 <div class="competitor-card__details">
-                    <div class="competitor-card__unit-name">
-                        {{ competitor.first_name }}
-                    </div>
+                    <a href="{{ competitor.get_absolute_url }}">
+                        <div class="competitor-card__unit-name" data-competitor-id="{{ competitor.id }}">
+                            {{ competitor.first_name }}
+                        </div>
+                    </a>
                     <div class="competitor-card__unit-description">
                         City: {{ competitor.city }}
                     </div>
@@ -26,4 +30,7 @@
             </div>
         {% endfor %}
     </div>
+
+    {% include 'paginator.html' with page=competitors %}
+
 {% endblock %}

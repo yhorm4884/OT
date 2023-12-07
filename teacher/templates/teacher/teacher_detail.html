@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    {% include 'teacher/breadcrumbs.html' %}
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" style="border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <img src="{{ teacher.avatar.url }}" alt="{{ teacher.first_name }}" class="card-img-top img-fluid" style="border-radius: 10px 10px 0 0;">
+                    <div class="card-body">
+                        <h1 class="card-title">{{ teacher.first_name }} {{ teacher.last_name }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card" style="border: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <div class="card-body" style="padding: 20px;">
+                        <h1>Datos del profesor</h1>
+                        <p class="card-text"><strong>Área de enseñanza: </strong>{{ teacher.subject }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

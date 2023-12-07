@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            color: #0080C9;
+            text-align: center;
+        }
+
+        .competitor-container {
+            display: flex;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .competitor-avatar {
+            border-radius: 50%;
+            margin-right: 20px;
+            width: 150px;
+            height: 150px;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .competitor-avatar img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+        }
+
+        .competitor-details {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        .competitor-name {
+            color: blue;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .competitor-info {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .competitor-hobbies {
+            color: #333;
+        }
+    </style>
+    {% include "competitor/breadcrumbs.html" %}
+
+    <h1>Competitor Details</h1>
+    <div class="competitor-container">
+        <div class="competitor-avatar">
+            {% if competitor.avatar %}
+                <img src="{{ competitor.avatar.url }}" alt="{{ competitor.first_name }} {{ competitor.last_name }}">
+            {% else %}
+                No Avatar
+            {% endif %}
+        </div>
+        <div class="competitor-details">
+            <div class="competitor-name">{{ competitor.first_name }} {{ competitor.last_name }}</div>
+            <p class="competitor-info"><strong>Birthdate:</strong> {{ competitor.birthdate }}</p>
+            <p class="competitor-info"><strong>City:</strong> {{ competitor.city }}</p>
+            <p class="competitor-info"><strong>Job:</strong> {{ competitor.job }}</p>
+            <p class="competitor-hobbies"><strong>Hobbies:</strong> {{ competitor.hobbies }}</p>
+        </div>
+    </div>
+{% endblock %}

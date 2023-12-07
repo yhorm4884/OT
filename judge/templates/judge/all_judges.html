@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    {% include 'judge/breadcrumbs.html' %}
+  <h1>All Judges</h1>
+
+  {% if judges %}
+    <div class="person-list" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-evenly;">
+        {% for judge in judges %}
+          <div class="person-card" style="border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; width: calc(33.3333% - 20px); margin: 15px; background-color: #fff;">
+            <img class="user-image" src="{{ judge.avatar.url }}" alt="{{ judge.first_name }}" style="width: 100%; height: auto; max-height: 200px; border-bottom: 1px solid #e0e0e0; object-fit: cover; border-radius: 10px 10px 0 0;">
+            <div class="user-details" style="text-align: left; padding: 15px;">
+              <h3>{{ judge.first_name }} {{ judge.last_name }}</h3>
+              <a href="{{ judge.get_absolute_url }}"><i class="fas fa-link"></i> View Details</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+    {% include 'paginator.html' with page=judges %}
+  {% else %}
+    <p>No judges found.</p>
+  {% endif %}
+
+{% endblock %}

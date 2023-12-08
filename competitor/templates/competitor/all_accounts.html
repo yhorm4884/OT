@@ -1,36 +1,34 @@
-<!-- competitor/templates/competitor/all_accounts.html -->
 {% extends "base.html" %}
 {% load static %}
 
 {% block content %}
-    {% include "competitor/breadcrumbs.html" %}
-    {% include "competitor/search.html" %}
+    <div class="container">
+        <div class="vertical-container">
+            {% include "competitor/breadcrumbs.html" %}
+            {% include "competitor/search.html" %}
+        </div>
 
-    <div class="competitor-list">
-        {% for competitor in competitors %}
-            <div class="competitor-card">
-                {% if competitor.avatar %}
-                    <div class="competitor-card__image" style="background-image: url('{{ competitor.avatar.url }}');"></div>
-                {% else %}
-                    <div class="competitor-card__image placeholder-image"></div>
-                {% endif %}
-                <div class="competitor-card__details">
+        <div class="competitor-list">
+            {% for competitor in competitors %}
+                <div class="box box-{{ forloop.counter }}" data-text="{{ competitor.first_name }}">
                     <a href="{{ competitor.get_absolute_url }}">
-                        <div class="competitor-card__unit-name" data-competitor-id="{{ competitor.id }}">
-                            {{ competitor.first_name }}
-                        </div>
+                        {% if competitor.avatar %}
+                            <img class="box-image" src="{{ competitor.avatar.url }}" alt="{{ competitor.first_name }}">
+                            <div class="overlay">
+                                <div class="box-text">
+                                    <p>{{ competitor.first_name }}</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="placeholder-image box-image"></div>
+                        {% endif %}
                     </a>
-                    <div class="competitor-card__unit-description">
-                        City: {{ competitor.city }}
-                    </div>
-                    <div class="competitor-card__unit-description">
-                        Music Styles: {% for style in competitor.music_styles.all %}{{ style.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
-                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            {% include 'paginator.html' with page=competitors %}
+        </div>
     </div>
-
-    {% include 'paginator.html' with page=competitors %}
-
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block content %}
     <style>
         body {
-            background-color: #f0f0f0;
+            background-color: #040404;
         }
 
         h1 {
@@ -16,7 +16,7 @@
             align-items: center;
             margin: 20px;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgb(255, 255, 255);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
@@ -44,19 +44,19 @@
         }
 
         .competitor-name {
-            color: blue;
+            color: #0080C9;
             font-size: 24px;
             margin-bottom: 10px;
         }
 
         .competitor-info {
             font-size: 18px;
-            color: #555;
+            color: grey;
             margin-bottom: 5px;
         }
 
         .competitor-hobbies {
-            color: #333;
+            color: grey;
         }
     </style>
     {% include "competitor/breadcrumbs.html" %}
@@ -72,10 +72,10 @@
         </div>
         <div class="competitor-details">
             <div class="competitor-name">{{ competitor.first_name }} {{ competitor.last_name }}</div>
-            <p class="competitor-info"><strong>Birthdate:</strong> {{ competitor.birthdate }}</p>
-            <p class="competitor-info"><strong>City:</strong> {{ competitor.city }}</p>
-            <p class="competitor-info"><strong>Job:</strong> {{ competitor.job }}</p>
-            <p class="competitor-hobbies"><strong>Hobbies:</strong> {{ competitor.hobbies }}</p>
+            <p class="competitor-info"><i class="fas fa-birthday-cake"></i><strong> Birthdate:</strong> {{ competitor.birthdate }}</p>
+            <p class="competitor-info"><i class="fas fa-map-marker-alt"></i><strong> City:</strong> {{ competitor.city }}</p>
+            <p class="competitor-info"><i class="fas fa-briefcase"></i><strong> Job:</strong> {{ competitor.job }}</p>
+            <p class="competitor-hobbies"><i class="fas fa-heart"></i><strong> Hobbies:</strong> {{ competitor.hobbies }}</p>
         </div>
     </div>
 {% endblock %}

@@ -1,27 +1,33 @@
-<!-- teacher/templates/teacher/teacher_list.html -->
 {% extends "base.html" %}
 {% load static %}
 
 {% block content %}
-  {% include 'teacher/breadcrumbs.html' %}
-
-  <h1 style="text-align: center;">Lista de Profesores</h1>
-
-  <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-    {% for teacher in teachers %}
-      <div style="width: 300px; margin: 20px; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease-in-out; background-color: #fff;">
-        <a href="{% url 'teacher:teacher_detail' teacher_slug=teacher.slug %}">
-          <img src="{{ teacher.avatar.url }}" alt="{{ teacher.first_name }}" style="width: 100%; height: auto; object-fit: cover; border-radius: 10px 10px 0 0;">
-        </a>
-        <div style="padding: 15px; text-align: left;">
-          <a href="{% url 'teacher:teacher_detail' teacher_slug=teacher.slug %}">
-            <h3>{{ teacher.first_name }} {{ teacher.last_name }}</h3>
-          </a>
-          <p><i class="fas fa-chalkboard-teacher icon" style="font-size: 24px; color: #333;"></i> Profesor</p>
+    <div class="container">
+        <div class="vertical-container">
+            {% include 'teacher/breadcrumbs.html' %}
         </div>
-      </div>
-    {% endfor %}
-  </div>
+        <div class="competitor-list">
+            {% for teacher in teachers %}
+                <div class="box box-{{ forloop.counter }}" data-text="{{ teacher.first_name }}">
+                    <a href="{% url 'teacher:teacher_detail' teacher_slug=teacher.slug %}">
+                        {% if teacher.avatar %}
+                            <img class="box-image" src="{{ teacher.avatar.url }}" alt="{{ teacher.first_name }}">
+                            <div class="overlay">
+                                <div class="box-text">
+                                    <p>{{ teacher.first_name }} {{ teacher.last_name }}</p>
+                                    <p><i class="fas fa-chalkboard-teacher icon"></i> Profesor</p>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="placeholder-image box-image"></div>
+                        {% endif %}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
 
-  {% include 'paginator.html' with page=teachers %}
+        <div class="pagination">
+            {% include 'paginator.html' with page=teachers %}
+        </div>
+    </div>
 {% endblock %}

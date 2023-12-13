@@ -1,28 +1,75 @@
 /* Añadir un poco de espacio en la parte superior */
 body {
     margin-top: 20px;
-    
+    font-family: 'Arial', sans-serif; /* Cambiar la fuente según tus preferencias */
+    background-color: #f8f9fa; /* Cambiar el color de fondo de la página */
 }
+
 /* Centrar el contenido en la página */
 .container {
     text-align: center;
+    margin-top: 50px;
 }
+
 /* Estilo mejorado para las tarjetas */
 .card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #ddd;
     border-radius: 8px;
     margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Agregar transiciones sutil al pasar el mouse */
 }
-/* Centrar la imagen dentro de la tarjeta */
+
+/* Efecto de elevación al pasar el mouse */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Centrar la imagen dentro de la tarjeta con animación */
 .card img {
     display: block;
     margin: auto;
     width: 80%;
-    margin-top: 5%;
+    margin-top: 10px;
+    transition: transform 0.3s; /* Agregar transición al pasar el mouse sobre la imagen */
 }
+
+/* Efecto de zoom al pasar el mouse sobre la imagen */
+.card:hover img {
+    transform: scale(1.1);
+}
+
 /* Centrar el texto en el cuerpo de la tarjeta */
 .card-body {
     text-align: center;
 }
 
+/* Cambiar el color de fondo al pasar el mouse */
+.card:hover {
+    background-color: #ffffff; /* Cambiar el color de fondo al pasar el mouse */
+}
+
+/* Estilo para el título de la tarjeta */
+.card-title {
+    margin-bottom: 0;
+    font-size: 1.5rem; /* Ajustar el tamaño del título según tus preferencias */
+    color: #343a40;
+}
+
+/* Estilo para el enlace en el cuerpo de la tarjeta con animación */
+.card-body a {
+    text-decoration: none;
+    color: #007bff; /* Cambiar el color del enlace */
+    transition: color 0.3s; /* Agregar transición al pasar el mouse sobre el enlace */
+}
+
+/* Cambiar el color del enlace al pasar el mouse */
+.card-body a:hover {
+    color: #0056b3;
+}
+
+/* Añadir espacio en la parte inferior del cuerpo de la tarjeta */
+.card-body {
+    padding-bottom: 15px;
+}
